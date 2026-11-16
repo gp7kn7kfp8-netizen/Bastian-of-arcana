@@ -12,7 +12,7 @@
 
         #app { display: flex; flex-direction: column; width: 100%; height: 100%; position: relative; background: radial-gradient(circle at center, #0f172a 0%, #030712 100%); }
 
-        /* Ornate Fantasy Header */
+        /* Top Header / Resource Bar */
         #header {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
             border-bottom: 2px solid #d4af37;
@@ -75,8 +75,39 @@
         .nav-btn.active { color: #d4af37; text-shadow: 0 0 12px rgba(212, 175, 55, 0.7); transform: translateY(-2px); }
         .nav-icon { font-size: 1.3rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
 
-        /* Home View (Defend Realm - 360 Arena) */
-        #home-view { align-items: center; justify-content: flex-start; gap: 12px; }
+        /* Home View (Out-of-Game Main Menu) */
+        #home-view { align-items: center; justify-content: center; gap: 20px; text-align: center; }
+        .main-menu-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
+            border: 2px solid #d4af37;
+            border-radius: 18px;
+            padding: 24px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+        .main-menu-card h1 { font-family: 'Cinzel', serif; font-size: 1.6rem; color: #d4af37; margin-bottom: 8px; font-weight: 900; letter-spacing: 1px; text-shadow: 0 2px 6px rgba(0,0,0,0.8); }
+        .main-menu-card p { font-size: 0.85rem; color: #94a3b8; margin-bottom: 20px; }
+        
+        .btn-play-game {
+            background: linear-gradient(135deg, #10b981, #047857);
+            color: white;
+            border: 1px solid #34d399;
+            padding: 16px;
+            border-radius: 12px;
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+            transition: all 0.2s;
+            letter-spacing: 1px;
+        }
+        .btn-play-game:hover { transform: scale(1.02); background: #059669; }
+
+        /* Game Run Screen (Tower Defense Arena) */
+        #game-view { align-items: center; justify-content: flex-start; gap: 12px; }
         .citadel-banner {
             width: 100%;
             max-width: 420px;
@@ -85,10 +116,10 @@
             border-radius: 14px;
             padding: 12px 16px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15), inset 0 1px 5px rgba(255,255,255,0.08);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
         }
-        .citadel-banner h2 { font-family: 'Cinzel', serif; font-size: 1.15rem; color: #d4af37; margin-bottom: 3px; font-weight: 700; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
-        .citadel-banner p { font-size: 0.8rem; color: #94a3b8; }
+        .citadel-banner h2 { font-family: 'Cinzel', serif; font-size: 1.15rem; color: #d4af37; margin-bottom: 3px; font-weight: 700; }
+        .citadel-banner p { font-size: 0.78rem; color: #94a3b8; line-height: 1.4; }
 
         #arena-container {
             width: 100%;
@@ -115,9 +146,7 @@
             font-size: 0.95rem;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-            transition: all 0.2s;
         }
-        .btn-main:active { transform: scale(0.97); }
         .btn-secondary {
             background: linear-gradient(135deg, #f59e0b, #b45309);
             color: white;
@@ -132,18 +161,18 @@
         .btn-citadel {
             width: 100%;
             max-width: 420px;
-            background: linear-gradient(135deg, #8b5cf6, #5b21b6);
+            background: linear-gradient(135deg, #dc2626, #991b1b);
             color: white;
-            border: 1px solid #a78bfa;
+            border: 1px solid #f87171;
             padding: 12px;
             border-radius: 10px;
             font-weight: 700;
             font-size: 0.9rem;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.35);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
         }
 
-        .panel-title { font-family: 'Cinzel', serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 15px; color: #d4af37; border-bottom: 2px solid rgba(212, 175, 55, 0.3); padding-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .panel-title { font-family: 'Cinzel', serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 15px; color: #d4af37; border-bottom: 2px solid rgba(212, 175, 55, 0.3); padding-bottom: 8px; }
         
         /* Card Grids */
         .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); gap: 12px; }
@@ -158,7 +187,6 @@
             align-items: center;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: transform 0.2s;
         }
         .card-item.unlocked { border-color: #d4af37; background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(212, 175, 55, 0.12)); box-shadow: 0 6px 18px rgba(212, 175, 55, 0.2); }
         .card-item h4 { font-family: 'Cinzel', serif; font-size: 0.9rem; color: #f8fafc; font-weight: 700; }
@@ -279,11 +307,20 @@
 
         <!-- Viewport -->
         <div id="viewport">
-            <!-- Home / Defend View -->
+            <!-- Home View (Out-of-Game Main Menu) -->
             <div id="home-view" class="view-screen active">
+                <div class="main-menu-card">
+                    <h1>Bastion of the Arcana</h1>
+                    <p>Defend the eternal crystal against endless dark swarms in this strategic tower defense idle realm.</p>
+                    <button class="btn-play-game" onclick="startRun()">START RUN</button>
+                </div>
+            </div>
+
+            <!-- In-Game Run Screen (360 Arena) -->
+            <div id="game-view" class="view-screen">
                 <div class="citadel-banner">
                     <h2 id="citadel-title">Tier 1: Wooden Outpost</h2>
-                    <p id="citadel-bonus">Base Coin Multiplier: <span id="coin-mult-display">1.00x</span> | Wave: <span id="wave-num">1</span></p>
+                    <p id="citadel-bonus">Total Coin Bonus: <span id="coin-mult-display">1.00x</span> | Wave: <span id="wave-num">1</span></p>
                 </div>
                 <div id="arena-container">
                     <canvas id="gameCanvas"></canvas>
@@ -292,16 +329,16 @@
                     <button class="btn-main" id="wave-btn" onclick="toggleWave()">Start Wave</button>
                     <button class="btn-secondary" id="ad-gem-btn" onclick="claimAdGem()">Free Gems (+25 💎)</button>
                 </div>
-                <button class="btn-citadel" id="citadel-up-btn" onclick="upgradeCitadel()">Upgrade Citadel (500 🪙)</button>
+                <button class="btn-citadel" onclick="endRun()">End Run & Return Home</button>
             </div>
 
-            <!-- Workshop View -->
+            <!-- Workshop View (Out of Run Only) -->
             <div id="workshop-view" class="view-screen">
-                <div class="panel-title">Citadel Workshop</div>
+                <div class="panel-title">Citadel Workshop (The Tower Idle Style)</div>
                 <div class="upgrade-list" id="workshop-list"></div>
             </div>
 
-            <!-- Cards View -->
+            <!-- Cards View (Out of Run Only) -->
             <div id="cards-view" class="view-screen">
                 <div class="panel-title">Arcane Cards (21 Deck)</div>
                 <div style="margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center;">
@@ -311,26 +348,26 @@
                 <div class="card-grid" id="cards-grid"></div>
             </div>
 
-            <!-- Ultimate Weapons View -->
+            <!-- Ultimate Weapons View (Out of Run Only) -->
             <div id="weapons-view" class="view-screen">
                 <div class="panel-title">Ultimate Weapons</div>
                 <div class="upgrade-list" id="weapons-list"></div>
             </div>
 
-            <!-- Store View (Multiplicative Coin Packs & Gem Bundles) -->
+            <!-- Store View (Out of Run Only) -->
             <div id="store-view" class="view-screen">
                 <div class="panel-title">Arcane Store (Multiplicative Packs)</div>
                 <div class="store-grid" id="store-list"></div>
             </div>
         </div>
 
-        <!-- Bottom Navigation Bar -->
+        <!-- Bottom Navigation Bar (Hidden During Active Runs) -->
         <div id="nav-bar">
-            <button class="nav-btn active" onclick="switchTab('home', this)"><span class="nav-icon">🏰</span>Defend</button>
-            <button class="nav-btn" onclick="switchTab('workshop', this)"><span class="nav-icon">🛠️</span>Workshop</button>
-            <button class="nav-btn" onclick="switchTab('cards', this)"><span class="nav-icon">🃏</span>Cards</button>
-            <button class="nav-btn" onclick="switchTab('weapons', this)"><span class="nav-icon">⚔️</span>Weapons</button>
-            <button class="nav-btn" onclick="switchTab('store', this)"><span class="nav-icon">🛒</span>Store</button>
+            <button class="nav-btn active" id="nav-home" onclick="switchTab('home', this)"><span class="nav-icon">🏰</span>Home</button>
+            <button class="nav-btn" id="nav-workshop" onclick="switchTab('workshop', this)"><span class="nav-icon">🛠️</span>Workshop</button>
+            <button class="nav-btn" id="nav-cards" onclick="switchTab('cards', this)"><span class="nav-icon">🃏</span>Cards</button>
+            <button class="nav-btn" id="nav-weapons" onclick="switchTab('weapons', this)"><span class="nav-icon">⚔️</span>Weapons</button>
+            <button class="nav-btn" id="nav-store" onclick="switchTab('store', this)"><span class="nav-icon">🛒</span>Store</button>
         </div>
     </div>
 
@@ -374,7 +411,7 @@
     </div>
 
     <script>
-        const SAVE_KEY = 'bastion_arcana_save_v5';
+        const SAVE_KEY = 'bastion_arcana_save_v9';
 
         const defaultState = {
             gold: 150,
@@ -382,14 +419,16 @@
             ores: 25,
             stones: 5,
             wave: 1,
-            citadelTier: 1,
+            citadelTier: 1, // 1 to 10
             citadelCost: 500,
             adGemUnlockTime: 0,
             purchasedStorePacks: [],
             upgrades: {
+                damage: { level: 1, cost: 60 },
+                attackSpeed: { level: 1, cost: 70 },
                 health: { level: 1, cost: 50 },
                 regen: { level: 1, cost: 75 },
-                damage: { level: 1, cost: 60 },
+                coinsPerKill: { level: 1, cost: 65 },
                 crit: { level: 1, cost: 100 },
                 range: { level: 1, cost: 80 }
             },
@@ -407,6 +446,7 @@
         };
 
         let state = JSON.parse(JSON.stringify(defaultState));
+        let inRun = false;
 
         const storePacks = [
             { id: 'pack_1_5x', name: '1.5x Coin Multiplier Pack + 500 Gems', type: 'multiplier', mult: 1.5, gems: 500, costGems: 100, desc: 'Permanently multiplies coin gains by 1.5x & grants 500 Gems' },
@@ -418,10 +458,27 @@
             { id: 'stones_750', name: 'Power Stones Pack (750 Stones)', type: 'stones', stones: 750, costGems: 300, desc: 'Milestone upgrade stones (750 Stones)' }
         ];
 
+        const citadelTiers = [
+            { name: "Tier 1: Wooden Outpost", bonus: 0, color: '#92400e', roof: '#b45309', wall: '#78350f' },
+            { name: "Tier 2: Stone Bastion", bonus: 15, color: '#475569', roof: '#64748b', wall: '#334155' },
+            { name: "Tier 3: Iron Citadel", bonus: 35, color: '#334155', roof: '#475569', wall: '#1e293b' },
+            { name: "Tier 4: Mithril Stronghold", bonus: 60, color: '#0369a1', roof: '#0284c7', wall: '#075985' },
+            { name: "Tier 5: Adamant Tower", bonus: 100, color: '#047857', roof: '#10b981', wall: '#065f46' },
+            { name: "Tier 6: Celestial Spire", bonus: 150, color: '#ca8a04', roof: '#eab308', wall: '#a16207' },
+            { name: "Tier 7: Nether Keep", bonus: 220, color: '#7e22ce', roof: '#9333ea', wall: '#581c87' },
+            { name: "Tier 8: Astral Sanctum", bonus: 300, color: '#c026d3', roof: '#e879f9', wall: '#a21caf' },
+            { name: "Tier 9: Ethereal Pinnacle", bonus: 400, color: '#2563eb', roof: '#3b82f6', wall: '#1d4ed8' },
+            { name: "Tier 10: Omnipotent Throne", bonus: 600, color: '#e11d48', roof: '#fb7185', wall: '#be123c' }
+        ];
+
         function getCoinMultiplier() {
             let mult = 1.0;
             const currentCitadel = citadelTiers[state.citadelTier - 1] || citadelTiers[0];
+            // Combine citadel base bonus (%) with research bonus
             mult *= (1 + (currentCitadel.bonus / 100));
+
+            const cpkLevel = state.upgrades.coinsPerKill ? state.upgrades.coinsPerKill.level : 1;
+            mult *= Math.pow(1.25, cpkLevel - 1);
 
             if (Array.isArray(state.purchasedStorePacks)) {
                 state.purchasedStorePacks.forEach(packId => {
@@ -434,7 +491,30 @@
             return mult;
         }
 
+        function calculateSpellDamage() {
+            let baseDamage = 1.0;
+            const damageLevel = state.upgrades.damage.level;
+            const damageMultiplier = Math.pow(1.30, damageLevel - 1);
+            
+            let cardMultiplier = 1.0;
+            state.cards.forEach(c => {
+                if (c.unlocked) {
+                    cardMultiplier *= (1 + (c.level * 0.05));
+                }
+            });
+
+            return baseDamage * damageMultiplier * cardMultiplier;
+        }
+
+        function calculateAttackCooldown() {
+            const baseFrames = 22;
+            const speedLevel = state.upgrades.attackSpeed ? state.upgrades.attackSpeed.level : 1;
+            const speedMultiplier = Math.pow(1.10, speedLevel - 1);
+            return Math.max(4, Math.round(baseFrames / speedMultiplier));
+        }
+
         function buyStorePack(packId) {
+            if (inRun) return;
             const pack = storePacks.find(p => p.id === packId);
             if (!pack) return;
 
@@ -536,20 +616,29 @@
             }
         }
 
-        const citadelTiers = [
-            { name: "Tier 1: Wooden Outpost", bonus: 0 },
-            { name: "Tier 2: Stone Bastion", bonus: 15 },
-            { name: "Tier 3: Iron Citadel", bonus: 35 },
-            { name: "Tier 4: Mithril Stronghold", bonus: 60 },
-            { name: "Tier 5: Adamant Tower", bonus: 100 },
-            { name: "Tier 6: Celestial Spire", bonus: 150 },
-            { name: "Tier 7: Nether Keep", bonus: 220 },
-            { name: "Tier 8: Astral Sanctum", bonus: 300 },
-            { name: "Tier 9: Ethereal Pinnacle", bonus: 400 },
-            { name: "Tier 10: Omnipotent Throne", bonus: 600 }
-        ];
+        function startRun() {
+            inRun = true;
+            document.getElementById('nav-bar').style.display = 'none';
+            switchTab('game', null);
+            resizeCanvas();
+        }
+
+        function endRun() {
+            inRun = false;
+            waveActive = false;
+            enemies = [];
+            projectiles = [];
+            document.getElementById('nav-bar').style.display = 'flex';
+            switchTab('home', document.getElementById('nav-home'));
+            saveGame();
+            updateUI();
+        }
 
         function switchTab(tabId, btnElement) {
+            if (inRun && tabId !== 'game') {
+                alert('You cannot access the out-of-game workshop or menus while in an active run!');
+                return;
+            }
             document.querySelectorAll('.view-screen').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
             document.getElementById(tabId + '-view').classList.add('active');
@@ -574,20 +663,13 @@
             document.getElementById('coin-mult-display').innerText = totalMult.toFixed(2) + 'x';
             document.getElementById('wave-num').innerText = state.wave;
 
-            const citBtn = document.getElementById('citadel-up-btn');
-            if (state.citadelTier >= 10) {
-                citBtn.innerText = 'Citadel Maxed (Tier 10)';
-                citBtn.style.opacity = '0.6';
-            } else {
-                citBtn.innerText = `Upgrade Citadel (${state.citadelCost} 🪙)`;
-                citBtn.style.opacity = '1';
-            }
-
             const workshopList = document.getElementById('workshop-list');
             const ups = [
+                { key: 'damage', name: 'Spell Damage (Multiplicative)', desc: 'Multiplicatively boosts base spell damage.' },
+                { key: 'attackSpeed', name: 'Attack Speed (Multiplicative)', desc: 'Multiplicatively increases spell firing rate.' },
                 { key: 'health', name: 'Tower Health', desc: 'Increases fortress structural integrity.' },
                 { key: 'regen', name: 'Health Regeneration', desc: 'Restores HP per second automatically.' },
-                { key: 'damage', name: 'Spell Damage', desc: 'Increases offensive blast potency.' },
+                { key: 'coinsPerKill', name: 'Coins / Kill (Multiplicative)', desc: 'Multiplicatively boosts coin rewards.' },
                 { key: 'crit', name: 'Critical Strike', desc: 'Chance to deal massive critical hits.' },
                 { key: 'range', name: 'Attack Range', desc: 'Extends target acquisition radius.' }
             ];
@@ -657,17 +739,8 @@
             }
         }
 
-        function upgradeCitadel() {
-            if (state.citadelTier < 10 && state.gold >= state.citadelCost) {
-                state.gold -= state.citadelCost;
-                state.citadelTier++;
-                state.citadelCost = Math.floor(state.citadelCost * 2.2);
-                saveGame();
-                updateUI();
-            }
-        }
-
         function buyUpgrade(key) {
+            if (inRun) return;
             const up = state.upgrades[key];
             if(state.gold >= up.cost) {
                 state.gold -= up.cost;
@@ -679,6 +752,7 @@
         }
 
         function buyWeapon(id) {
+            if (inRun) return;
             const w = state.weapons[id];
             if(state.stones >= w.cost) {
                 state.stones -= w.cost;
@@ -690,6 +764,7 @@
         }
 
         function pullCards(count) {
+            if (inRun) return;
             if(state.gems >= 100) {
                 state.gems -= 100;
                 let pulled = [];
@@ -755,7 +830,7 @@
             }
         }
 
-        /* --- 360° CIRCULAR ARENA TOWER DEFENSE ENGINE WITH ARCANE PARTICLES --- */
+        /* --- 360° CIRCULAR ARENA TOWER DEFENSE ENGINE --- */
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         let waveActive = false;
@@ -766,17 +841,18 @@
         let attackTimer = 0;
 
         function resizeCanvas() {
-            canvas.width = canvas.clientWidth;
-            canvas.height = canvas.clientHeight;
+            if(canvas) {
+                canvas.width = canvas.clientWidth;
+                canvas.height = canvas.clientHeight;
+            }
         }
         window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
 
         function toggleWave() {
             if (waveActive) return;
             waveActive = true;
             const count = 6 + Math.min(state.wave * 2, 24);
-            const baseHp = 35 + (state.wave * 14);
+            const baseHp = 20 + (state.wave * 8);
             for(let i=0; i<count; i++) {
                 const angle = Math.random() * Math.PI * 2;
                 const spawnDist = 160 + Math.random() * 40;
@@ -788,180 +864,199 @@
                     y: canvas.height / 2 + Math.sin(angle) * spawnDist,
                     hp: baseHp,
                     maxHp: baseHp,
-                    speed: 1.0 + Math.min(state.wave * 0.04, 1.4),
+                    speed: 0.9 + Math.min(state.wave * 0.03, 1.2),
                     type: type,
                     radius: type === 'Dragon Whelp' ? 10 : 7
                 });
             }
         }
 
-        function gameLoop() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            const cx = canvas.width / 2;
-            const cy = canvas.height / 2;
-            const rangeRadius = 110 + (state.upgrades.range.level * 14);
-
-            // Ambient background runes/glow
-            ctx.strokeStyle = 'rgba(212, 175, 55, 0.12)';
-            ctx.lineWidth = 1;
+        function drawCitadelTower(cx, cy, tierIdx) {
+            const t = citadelTiers[tierIdx] || citadelTiers[0];
+            
+            // Base shadow/foundation
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
             ctx.beginPath();
-            ctx.arc(cx, cy, rangeRadius * 0.6, 0, Math.PI * 2);
-            ctx.stroke();
+            ctx.arc(cx, cy + 2, 26, 0, Math.PI * 2);
+            ctx.fill();
 
-            // Draw 360-degree tactical range ring
-            ctx.strokeStyle = 'rgba(212, 175, 55, 0.3)';
-            ctx.lineWidth = 1.5;
-            ctx.setLineDash([6, 6]);
+            // Fortress Body (Changes style per tier)
+            ctx.fillStyle = t.wall;
             ctx.beginPath();
-            ctx.arc(cx, cy, rangeRadius, 0, Math.PI * 2);
-            ctx.stroke();
-            ctx.setLineDash([]);
-
-            // Draw Central Citadel Spire with fantasy crystal glow
-            let grad = ctx.createRadialGradient(cx, cy, 2, cx, cy, 26);
-            grad.addColorStop(0, '#60a5fa');
-            grad.addColorStop(0.5, '#1e3a8a');
-            grad.addColorStop(1, '#0f172a');
-            ctx.fillStyle = grad;
-            ctx.beginPath();
-            ctx.arc(cx, cy, 24, 0, Math.PI * 2);
+            ctx.roundRect(cx - 18, cy - 18, 36, 36, 6);
             ctx.fill();
             ctx.strokeStyle = '#d4af37';
-            ctx.lineWidth = 3;
+            ctx.lineWidth = 2;
             ctx.stroke();
 
-            // Citadel Core Crystal
-            ctx.fillStyle = '#fbbf24';
+            // Inner Citadel Keep structure
+            let grad = ctx.createRadialGradient(cx, cy, 2, cx, cy, 22);
+            grad.addColorStop(0, t.roof);
+            grad.addColorStop(1, t.color);
+            ctx.fillStyle = grad;
             ctx.beginPath();
-            ctx.arc(cx, cy, 8, 0, Math.PI * 2);
+            if (tierIdx >= 6) {
+                // Futuristic/Ethereal Spire shape (octagonal/star)
+                ctx.moveTo(cx, cy - 24);
+                ctx.lineTo(cx + 18, cy);
+                ctx.lineTo(cx, cy + 24);
+                ctx.lineTo(cx - 18, cy);
+            } else if (tierIdx >= 3) {
+                // Stronghold Tower (Hexagonal)
+                ctx.arc(cx, cy, 18, 0, Math.PI * 2);
+            } else {
+                // Wooden / Stone Outpost (Square Keep)
+                ctx.rect(cx - 14, cy - 14, 28, 28);
+            }
             ctx.fill();
+            ctx.strokeStyle = '#fbbf24';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
 
-            if (waveActive) {
-                attackTimer++;
-                if (attackTimer >= 22 && enemies.length > 0) {
-                    const target = enemies.find(e => Math.hypot(e.x - cx, e.y - cy) <= rangeRadius);
-                    if (target) {
-                        attackTimer = 0;
-                        const isCrit = Math.random() < Math.min(0.05 + state.upgrades.crit.level * 0.03, 0.75);
-                        const dmg = Math.round((18 + state.upgrades.damage.level * 9) * (isCrit ? 2.5 : 1));
-                        projectiles.push({ x: cx, y: cy, target, dmg, isCrit });
-                    }
-                }
+            // Central Crystal Core
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#38bdf8';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
 
-                // Projectiles
-                for (let i = projectiles.length - 1; i >= 0; i--) {
-                    const p = projectiles[i];
-                    if (!p.target || p.target.hp <= 0) {
-                        projectiles.splice(i, 1);
-                        continue;
-                    }
-                    const dx = p.target.x - p.x;
-                    const dy = p.target.y - p.y;
-                    const dist = Math.hypot(dx, dy);
-                    if (dist < 10) {
-                        p.target.hp -= p.dmg;
-                        floatingTexts.push({ x: p.target.x, y: p.target.y - 10, text: `-${p.dmg}`, color: p.isCrit ? '#facc15' : '#38bdf8', life: 25 });
-                        
-                        // Spark particles on hit
-                        for(let k=0; k<5; k++) {
-                            particles.push({
-                                x: p.target.x, y: p.target.y,
-                                vx: (Math.random() - 0.5) * 4, vy: (Math.random() - 0.5) * 4,
-                                color: p.isCrit ? '#facc15' : '#60a5fa', life: 15
-                            });
+        function gameLoop() {
+            if (inRun && canvas) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2;
+                const rangeRadius = 110 + (state.upgrades.range.level * 14);
+
+                // Tactical range ring
+                ctx.strokeStyle = 'rgba(212, 175, 55, 0.3)';
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([6, 6]);
+                ctx.beginPath();
+                ctx.arc(cx, cy, rangeRadius, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Draw Custom Upgraded Citadel Fort Image
+                drawCitadelTower(cx, cy, state.citadelTier - 1);
+
+                if (waveActive) {
+                    attackTimer++;
+                    const fireInterval = calculateAttackCooldown();
+                    if (attackTimer >= fireInterval && enemies.length > 0) {
+                        const target = enemies.find(e => Math.hypot(e.x - cx, e.y - cy) <= rangeRadius);
+                        if (target) {
+                            attackTimer = 0;
+                            const isCrit = Math.random() < Math.min(0.05 + state.upgrades.crit.level * 0.03, 0.75);
+                            const rawDmg = calculateSpellDamage();
+                            const dmg = Math.max(1, Math.round(rawDmg * (isCrit ? 2.5 : 1)));
+                            projectiles.push({ x: cx, y: cy, target, dmg, isCrit });
                         }
-                        projectiles.splice(i, 1);
-                    } else {
-                        p.x += (dx / dist) * 9;
-                        p.y += (dy / dist) * 9;
-                        ctx.fillStyle = p.isCrit ? '#facc15' : '#38bdf8';
-                        ctx.shadowBlur = 10;
-                        ctx.shadowColor = p.isCrit ? '#facc15' : '#38bdf8';
+                    }
+
+                    for (let i = projectiles.length - 1; i >= 0; i--) {
+                        const p = projectiles[i];
+                        if (!p.target || p.target.hp <= 0) {
+                            projectiles.splice(i, 1);
+                            continue;
+                        }
+                        const dx = p.target.x - p.x;
+                        const dy = p.target.y - p.y;
+                        const dist = Math.hypot(dx, dy);
+                        if (dist < 10) {
+                            p.target.hp -= p.dmg;
+                            floatingTexts.push({ x: p.target.x, y: p.target.y - 10, text: `-${p.dmg}`, color: p.isCrit ? '#facc15' : '#38bdf8', life: 25 });
+                            for(let k=0; k<5; k++) {
+                                particles.push({
+                                    x: p.target.x, y: p.target.y,
+                                    vx: (Math.random() - 0.5) * 4, vy: (Math.random() - 0.5) * 4,
+                                    color: p.isCrit ? '#facc15' : '#60a5fa', life: 15
+                                });
+                            }
+                            projectiles.splice(i, 1);
+                        } else {
+                            p.x += (dx / dist) * 9;
+                            p.y += (dy / dist) * 9;
+                            ctx.fillStyle = p.isCrit ? '#facc15' : '#38bdf8';
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.isCrit ? 5 : 3.5, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                    }
+
+                    for (let index = enemies.length - 1; index >= 0; index--) {
+                        const e = enemies[index];
+                        const dx = cx - e.x;
+                        const dy = cy - e.y;
+                        const dist = Math.hypot(dx, dy);
+
+                        if (dist > 20) {
+                            e.x += (dx / dist) * e.speed;
+                            e.y += (dy / dist) * e.speed;
+                        }
+
+                        if (e.hp <= 0) {
+                            const totalMult = getCoinMultiplier();
+                            const goldEarned = Math.round((12 + state.wave * 3) * totalMult);
+                            state.gold += goldEarned;
+                            floatingTexts.push({ x: e.x, y: e.y, text: `+${goldEarned}🪙`, color: '#d4af37', life: 30 });
+                            enemies.splice(index, 1);
+                            document.getElementById('res-gold').innerText = Math.floor(state.gold);
+                            continue;
+                        }
+
+                        ctx.fillStyle = e.type === 'Dragon Whelp' ? '#db2777' : (e.type === 'Skeleton Mage' ? '#9333ea' : '#dc2626');
                         ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.isCrit ? 5 : 3.5, 0, Math.PI * 2);
+                        ctx.arc(e.x, e.y, e.radius, 0, Math.PI*2);
                         ctx.fill();
-                        ctx.shadowBlur = 0;
-                    }
-                }
+                        ctx.strokeStyle = '#f8fafc';
+                        ctx.lineWidth = 1.5;
+                        ctx.stroke();
 
-                // Enemies
-                for (let index = enemies.length - 1; index >= 0; index--) {
-                    const e = enemies[index];
-                    const dx = cx - e.x;
-                    const dy = cy - e.y;
-                    const dist = Math.hypot(dx, dy);
+                        ctx.fillStyle = 'rgba(0,0,0,0.7)';
+                        ctx.fillRect(e.x - 14, e.y - 16, 28, 4);
+                        ctx.fillStyle = '#22c55e';
+                        ctx.fillRect(e.x - 14, e.y - 16, 28 * Math.max(0, e.hp / e.maxHp), 4);
 
-                    if (dist > 20) {
-                        e.x += (dx / dist) * e.speed;
-                        e.y += (dy / dist) * e.speed;
-                    }
-
-                    if (e.hp <= 0) {
-                        const totalMult = getCoinMultiplier();
-                        const goldEarned = Math.round((12 + state.wave * 3) * totalMult);
-                        state.gold += goldEarned;
-                        floatingTexts.push({ x: e.x, y: e.y, text: `+${goldEarned}🪙`, color: '#d4af37', life: 30 });
-                        enemies.splice(index, 1);
-                        document.getElementById('res-gold').innerText = Math.floor(state.gold);
-                        continue;
+                        if(dist <= 22) {
+                            enemies.splice(index, 1);
+                            state.gold = Math.max(0, state.gold - 10);
+                            floatingTexts.push({ x: cx, y: cy - 22, text: `-10 HP`, color: '#ef4444', life: 30 });
+                            document.getElementById('res-gold').innerText = Math.floor(state.gold);
+                        }
                     }
 
-                    // Render Enemy Ornate Unit
-                    ctx.fillStyle = e.type === 'Dragon Whelp' ? '#db2777' : (e.type === 'Skeleton Mage' ? '#9333ea' : '#dc2626');
-                    ctx.beginPath();
-                    ctx.arc(e.x, e.y, e.radius, 0, Math.PI*2);
-                    ctx.fill();
-                    ctx.strokeStyle = '#f8fafc';
-                    ctx.lineWidth = 1.5;
-                    ctx.stroke();
-
-                    // Enemy mini HP bar
-                    ctx.fillStyle = 'rgba(0,0,0,0.7)';
-                    ctx.fillRect(e.x - 14, e.y - 16, 28, 4);
-                    ctx.fillStyle = '#22c55e';
-                    ctx.fillRect(e.x - 14, e.y - 16, 28 * Math.max(0, e.hp / e.maxHp), 4);
-
-                    if(dist <= 22) {
-                        enemies.splice(index, 1);
-                        state.gold = Math.max(0, state.gold - 10);
-                        floatingTexts.push({ x: cx, y: cy - 22, text: `-10 HP`, color: '#ef4444', life: 30 });
-                        document.getElementById('res-gold').innerText = Math.floor(state.gold);
+                    for (let i = particles.length - 1; i >= 0; i--) {
+                        let pt = particles[i];
+                        pt.x += pt.vx;
+                        pt.y += pt.vy;
+                        pt.life--;
+                        ctx.fillStyle = pt.color;
+                        ctx.fillRect(pt.x, pt.y, 2.5, 2.5);
+                        if (pt.life <= 0) particles.splice(i, 1);
                     }
-                }
 
-                // Particles
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    let pt = particles[i];
-                    pt.x += pt.vx;
-                    pt.y += pt.vy;
-                    pt.life--;
-                    ctx.fillStyle = pt.color;
-                    ctx.fillRect(pt.x, pt.y, 2.5, 2.5);
-                    if (pt.life <= 0) particles.splice(i, 1);
-                }
+                    for (let i = floatingTexts.length - 1; i >= 0; i--) {
+                        let ft = floatingTexts[i];
+                        ft.y -= 0.6;
+                        ft.life--;
+                        ctx.fillStyle = ft.color;
+                        ft.font = 'bold 12px Inter, sans-serif';
+                        ctx.fillText(ft.text, ft.x, ft.y);
+                        if (ft.life <= 0) floatingTexts.splice(i, 1);
+                    }
 
-                // Floating numbers
-                for (let i = floatingTexts.length - 1; i >= 0; i--) {
-                    let ft = floatingTexts[i];
-                    ft.y -= 0.6;
-                    ft.life--;
-                    ctx.fillStyle = ft.color;
-                    ctx.font = 'bold 12px Inter, sans-serif';
-                    ctx.shadowBlur = 6;
-                    ctx.shadowColor = ft.color;
-                    ctx.fillText(ft.text, ft.x, ft.y);
-                    ctx.shadowBlur = 0;
-                    if (ft.life <= 0) floatingTexts.splice(i, 1);
-                }
-
-                if(enemies.length === 0) {
-                    waveActive = false;
-                    projectiles = [];
-                    state.wave++;
-                    if (state.wave % 5 === 0) state.stones += 2;
-                    saveGame();
-                    updateUI();
+                    if(enemies.length === 0) {
+                        waveActive = false;
+                        projectiles = [];
+                        state.wave++;
+                        if (state.wave % 5 === 0) state.stones += 2;
+                        saveGame();
+                        updateUI();
+                    }
                 }
             }
 
